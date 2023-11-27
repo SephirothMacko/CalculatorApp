@@ -71,7 +71,7 @@ class App:
                     self.clearing()
                 case "-EQUAL-":
                     if len(self.memory) != 0 and len(values["-INPUT-"]) != 0:
-                        self.memory.append(int(self.displayed_value))
+                        self.memory.append(float(self.displayed_value))
                     if str(self.memory[-1]) in "+-*/":
                         self.memory.pop(-1)
                     self.processing()
@@ -89,22 +89,22 @@ class App:
         self.value_input.update(self.displayed_value)
 
     def adding(self):
-        self.memory.append(int(self.displayed_value))
+        self.memory.append(float(self.displayed_value))
         self.memory.append("+")
         self.clearing()
 
     def subtracting(self):
-        self.memory.append(int(self.displayed_value))
+        self.memory.append(float(self.displayed_value))
         self.memory.append("-")
         self.clearing()
 
     def multiplying(self):
-        self.memory.append(int(self.displayed_value))
+        self.memory.append(float(self.displayed_value))
         self.memory.append("*")
         self.clearing()
 
     def dividing(self):
-        self.memory.append(int(self.displayed_value))
+        self.memory.append(float(self.displayed_value))
         self.memory.append("/")
         self.clearing()
 
@@ -124,7 +124,7 @@ class App:
             pmemory.pop(0)
             pmemory.pop(0)
         self.memory = []
-        self.displayed_value = ""
+        self.displayed_value = str(pvalue)
         self.value_input(pvalue)
 
 
