@@ -41,7 +41,7 @@ class App:
             [psg.VPush()],
             [psg.Push(), exitfuncs, psg.Push()]
         ]
-        calc_window = psg.Window("Calculator", layout, titlebar_font=("Arial", 12), icon="calc.ico", size=(200, 400))
+        calc_window = psg.Window("Calculator", layout, titlebar_font=("Arial", 12), icon="calc.ico", size=(250, 400))
 
         while True:
             event, values = calc_window.read()
@@ -72,9 +72,9 @@ class App:
                 case "-EQUAL-":
                     if len(self.memory) != 0 and len(values["-INPUT-"]) != 0:
                         self.memory.append(float(self.displayed_value))
-                    if str(self.memory[-1]) in "+-*/":
-                        self.memory.pop(-1)
-                    self.processing()
+                        if str(self.memory[-1]) in "+-*/":
+                            self.memory.pop(-1)
+                        self.processing()
 
 
             if event.isnumeric():
